@@ -2,11 +2,13 @@ package com.alex.robot.monnaieparisrobot.model;
 
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "PiecesMonnaieParis")
 public class PieceSortie {
-	
+	@Id
+	private String idPiece;
 	
 	private String nom;
 	
@@ -113,16 +115,49 @@ public class PieceSortie {
 		this.dateAcquisition = dateAcquisition;
 	}
 
-	@Override
-	public String toString() {
-		return "PieceSortie [nom=" + nom + ", ville=" + ville + ", isPossede=" + isPossede + ", longitude=" + longitude
-				+ ", lattitude=" + lattitude + ", valeur=" + valeur + ", departement=" + departement
-				+ ", dateAcquisition=" + dateAcquisition + "]";
+	
+	
+
+	
+
+	
+
+	public PieceSortie(String idPiece, String nom, String ville, boolean isPossede, double longitude, double lattitude,
+			double valeur, String departement, Date dateAcquisition) {
+		super();
+		this.idPiece = idPiece;
+		this.nom = nom;
+		this.ville = ville;
+		this.isPossede = isPossede;
+		this.longitude = longitude;
+		this.lattitude = lattitude;
+		this.valeur = valeur;
+		this.departement = departement;
+		this.dateAcquisition = dateAcquisition;
+	}
+
+	public String getIdPiece() {
+		return idPiece;
+	}
+
+	public void setIdPiece(String idPiece) {
+		this.idPiece = idPiece;
 	}
 
 	public PieceSortie() {
 		super();
 	}
+
+	@Override
+	public String toString() {
+		return "PieceSortie [idPiece=" + idPiece + ", nom=" + nom + ", ville=" + ville + ", isPossede=" + isPossede
+				+ ", longitude=" + longitude + ", lattitude=" + lattitude + ", valeur=" + valeur + ", departement="
+				+ departement + ", dateAcquisition=" + dateAcquisition + "]";
+	}
+
+	
+	
+	
 	
 	
 	

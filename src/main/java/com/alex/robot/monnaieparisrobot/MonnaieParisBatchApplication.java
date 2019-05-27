@@ -2,6 +2,7 @@ package com.alex.robot.monnaieparisrobot;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,7 @@ public class MonnaieParisBatchApplication implements CommandLineRunner{
 		
 		for (Datum pieceSortie : collect) {
 			PieceSortie infosPiece = pieceServices.getInfosPiece(pieceSortie);
+			infosPiece.setIdPiece(UUID.randomUUID().toString());
 			allPieces.add(infosPiece);
 			if(pieceServices.creerPiece(infosPiece)) {
 				compteurNouvellesPieces++;
